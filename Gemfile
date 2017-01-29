@@ -16,9 +16,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
+gem 'haml'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem "erb2haml"
 end
 
 group :development do
