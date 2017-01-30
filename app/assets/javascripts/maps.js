@@ -1,7 +1,8 @@
 function initMap() {
   var latlng = {lat: 17.385044, lng: 78.486671};
+
   // var coords = {};
-  // var test = $(coords).on('positionReady', function(e, pos) { console.log(pos); });
+  // $(coords).on('positionReady', function(e, pos) { return pos;});
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15
@@ -21,12 +22,15 @@ function initMap() {
 
   //called everytime position is changed
   function showLocation(position) {
-    var pos = {
+    var location = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     }
-    map.setCenter(pos);
-    marker.setPosition(pos);
+    map.setCenter(location);
+    marker.setPosition(location);
+    $.post('/location', {location}, function(result) {
+    });
+
     // $(coords).trigger('positionReady', pos);
   };
 
